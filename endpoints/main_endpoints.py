@@ -1,11 +1,11 @@
 import requests
 from data_for_tests.urls import *
-from data_for_tests.users import USERNAME, PASSWORD
+from data_for_tests.users import *
 
 
 # Функция для получения токена авторизации
 def get_auth_token():
-    data = {"username": USERNAME, "password": PASSWORD}
+    data = {"username": users["tester"]["username"], "password": users["tester"]["password"]}
     response = requests.post(BASE_URL_LOGIN, json=data, headers=HEADERS)
     response.raise_for_status()
     return response.json()["access_token"]

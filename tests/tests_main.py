@@ -11,7 +11,7 @@ def test_get_version():
 
 # Тест на авторизацию
 def test_login(auth_token):
-    data = {"username": USERNAME, "password": PASSWORD}
+    data = {"username": users["tester"]["username"], "password": users["tester"]["password"]}
     response = requests.post(BASE_URL_LOGIN, json=data, headers=HEADERS)
     assert response.status_code == 200
     assert auth_token is not None
